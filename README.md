@@ -251,6 +251,50 @@ Toy#T-01: fake-meow
 Toy#T-01: fake-meow
 ```
 
+Блок 6 — Возведение в степень (MathUtils)
+Задача: Реализация утилитного метода с использованием статических импортов
+
+Создать класс MathUtils с методом power(), который принимает два строковых аргумента, преобразует их в целые числа и возвращает результат возведения в степень.
+
+Используются статические импорты для удобства:
+
+import static java.lang.Integer.parseInt;
+import static java.lang.Math.pow;
+
+
+Метод power(String x, String y):
+
+Преобразует строки x и y в целые числа.
+
+Вычисляет x^y с помощью Math.pow.
+
+В случае некорректного ввода выбрасывает IllegalArgumentException.
+
+Реализация:
+
+```java
+import static java.lang.Integer.parseInt;
+import static java.lang.Math.pow;
+
+public class MathUtils {
+    public static double power(String x, String y) {
+        try {
+            int base = parseInt(x.trim());
+            int exp = parseInt(y.trim());
+            return pow(base, exp);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Both parameters must be integers");
+        }
+    }
+}
+```
+```java
+--- Блок 6: MathUtils (возведение в степень) ---
+Введите целое X: 2
+Введите целое Y: 10
+2^10 = 1024.0
+```
+
 Демонстрирует:
 
 интерфейсы (interface),
